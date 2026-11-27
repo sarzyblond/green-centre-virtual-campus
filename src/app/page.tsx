@@ -1,69 +1,65 @@
-import Image from "next/image";
+import Link from "next/link";
+import { PublicHeader } from "@/components/public-header";
+import { PublicFooter } from "@/components/public-footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <PublicHeader />
+      <main>
+        <section className="overflow-hidden bg-[#0b2e1c] text-white">
+          <div className="mx-auto grid min-h-[620px] max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.15fr_.85fr] lg:px-12">
+            <div className="animate-rise max-w-2xl">
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-[#bdd1c3]">Learn with purpose</p>
+              <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight sm:text-6xl">Natural medicine education for meaningful practice.</h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[#dde8e1]">
+                Access structured programmes, qualified lecturers and a supportive academic community through the Green Centre Virtual Campus.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/programmes" className="rounded-md bg-white px-6 py-3 text-center font-semibold text-[#0b2e1c] transition hover:bg-[#edf4ef]">Explore programmes</Link>
+                <Link href="/register" className="rounded-md border border-white/35 px-6 py-3 text-center font-semibold text-white transition hover:border-white hover:bg-white/10">Register as a student</Link>
+              </div>
+            </div>
+            <div className="animate-rise rounded-xl border border-white/15 bg-white/[0.07] p-5 shadow-2xl [animation-delay:120ms] sm:p-8">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  ["5", "Programme levels"],
+                  ["One", "Connected campus"],
+                  ["Live", "Virtual learning"],
+                  ["Secure", "Student access"],
+                ].map(([value, label]) => (
+                  <div key={label} className="rounded-lg border border-white/10 bg-[#102f20] p-6">
+                    <p className="text-2xl font-semibold">{value}</p>
+                    <p className="mt-2 text-sm text-[#bdd1c3]">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-white px-5 py-20 sm:px-8 lg:px-12">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#8b332c]">Virtual learning</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#172019] sm:text-4xl">Everything you need for your academic journey.</h2>
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {[
+                ["Structured programmes", "Move through clear programme stages with dedicated courses and academic guidance."],
+                ["Connected teaching", "Learn alongside your lecturers and peers through classes and course resources."],
+                ["Accessible resources", "Keep learning materials, announcements and academic progress in one secure place."],
+              ].map(([title, copy]) => (
+                <article key={title} className="rounded-xl border border-[#dfe8e2] p-7 shadow-sm">
+                  <div className="mb-5 h-1 w-10 rounded-full bg-[#a33a32]" />
+                  <h3 className="text-xl font-semibold text-[#153e2a]">{title}</h3>
+                  <p className="mt-3 leading-7 text-[#5d685f]">{copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+      <PublicFooter />
+    </>
   );
 }
